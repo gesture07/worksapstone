@@ -29,25 +29,19 @@ public class Picture_Word_Result extends AppCompatActivity {
 
         // 다시하기 버튼 클릭 리스너
         Button restartButton = findViewById(R.id.restart_button);
-        restartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Picture_Word_Result.this, Picture_Word.class);
-                finish();
-                // Picture_Word 클래스로 이동
-                startActivity(intent);
-            }
+        restartButton.setOnClickListener(v -> {
+            Intent intent1 = new Intent(Picture_Word_Result.this, Picture_Word.class);
+            finish();
+            // Picture_Word 클래스로 이동
+            startActivity(intent1);
         });
 
         // 오답 노트 버튼 클릭 리스너
         Button noteButton = findViewById(R.id.note_button);
-        noteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Picture_Word_Result.this, Training2_1.class);
-                finish();
-                startActivity(intent);
-            }
+        noteButton.setOnClickListener(v -> {
+            Intent intent12 = new Intent(Picture_Word_Result.this, Training2_1.class);
+            finish();
+            startActivity(intent12);
         });
     }
 }

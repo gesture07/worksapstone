@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textStyle="bold"
+
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="38dp"
         tools:ignore="MissingConstraints" />
