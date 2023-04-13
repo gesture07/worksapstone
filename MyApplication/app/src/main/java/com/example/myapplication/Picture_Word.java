@@ -2,15 +2,11 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle; import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.example.myapplication.CountryItem;
-import com.example.myapplication.Database;
-import com.example.myapplication.MainActivity;
-import com.example.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,6 +18,8 @@ public class Picture_Word extends AppCompatActivity {
     List<CountryItem> list;
     Random r;
     int turn = 1;
+    //퀴즈 정답 수 체크
+    int correctAnswers = 0;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -49,6 +47,8 @@ public class Picture_Word extends AppCompatActivity {
                 //정답 체크
                 if (b_answer1.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
                     Toast.makeText(Picture_Word.this, "Correct!", Toast.LENGTH_SHORT).show();
+                    //퀴즈 정답 수 증가
+                    correctAnswers++;
                     //마지막 문제 체크
                     if (turn < list.size()) {
                         turn++;
@@ -77,6 +77,8 @@ public class Picture_Word extends AppCompatActivity {
                 // 정답 체크
                 if (b_answer2.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
                     Toast.makeText(Picture_Word.this, "Correct!", Toast.LENGTH_SHORT).show();
+                    //퀴즈 정답 수 증가
+                    correctAnswers++;
                     //마지막 문제 체크
                     if (turn < list.size()) {
                         turn++;
@@ -95,13 +97,14 @@ public class Picture_Word extends AppCompatActivity {
                 //정답체크
                 if(b_answer3.getText().toString().equalsIgnoreCase(list.get(turn -1).getName())){
                     Toast.makeText(Picture_Word.this, "correct!", Toast.LENGTH_SHORT).show();
-
+                    //퀴즈 정답 수 증가
+                    correctAnswers++;
                     //마지막 문제 체크
                     if( turn<list.size()){
                         turn++;
                         newQuestion(turn);
                     } else{
-                        Toast.makeText(Picture_Word.this, "youfinished the game!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Picture_Word.this, "you finished the game!", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 } else{
@@ -123,7 +126,8 @@ public class Picture_Word extends AppCompatActivity {
                 //정답체크
                 if (b_answer4.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
                     Toast.makeText(Picture_Word.this, "correct!", Toast.LENGTH_SHORT).show();
-
+                    //퀴즈 정답 수 증가
+                    correctAnswers++;
                     //마자막 문제 체크
                     if (turn < list.size()) {
                         turn++;
@@ -145,6 +149,7 @@ public class Picture_Word extends AppCompatActivity {
                 }
             }
         });
+        showResult(correctAnswers, turn);
     }
     private void newQuestion(int number){
         //국기 이미지를 스크린에 세팅한다.
@@ -229,6 +234,14 @@ public class Picture_Word extends AppCompatActivity {
                 break;
         }
 
+    }
+    //맞힌 문제 수, 전체 문제 수 결과 액티비티로 전달 후 이동
+    public void showResult(int correctAnswers, int totalQuestions){
+        Intent intent = new Intent(this, Picture_Word_Result.class);
+        intent.putExtra("correctAnswers", correctAnswers);
+        intent.putExtra("totalQuestions", totalQuestions);
+        finish();
+        startActivity(intent);
     }
 }
 
