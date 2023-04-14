@@ -38,6 +38,7 @@
         <activity android:name=".Quiz3_1"/>
         <activity android:name=".QuizPopup3_1_1"/>
         <activity android:name=".Picture_Word"/>
+        <activity android:name=".Picture_Word_Result"/>
         <activity android:name=".Sound_Picture"/>
         <activity android:name=".Letter_Picture"/>
     </application>

@@ -55,7 +55,7 @@ public class Picture_Word extends AppCompatActivity {
                         newQuestion(turn);
                     } else {
                         Toast.makeText(Picture_Word.this, "You finished the game!", Toast.LENGTH_SHORT).show();
-                        finish();
+                        showResult(correctAnswers, turn);
                     }
                 } else {
                     Toast.makeText(Picture_Word.this, "Wrong!", Toast.LENGTH_SHORT).show();
@@ -65,7 +65,7 @@ public class Picture_Word extends AppCompatActivity {
                         newQuestion(turn);
                     } else {
                         Toast.makeText(Picture_Word.this, "You lost the game!", Toast.LENGTH_SHORT).show();
-                        finish();
+                        showResult(correctAnswers, turn);
                     }
                 }
             }
@@ -83,11 +83,20 @@ public class Picture_Word extends AppCompatActivity {
                     if (turn < list.size()) {
                         turn++;
                         newQuestion(turn);
-
+                    } else {
+                        Toast.makeText(Picture_Word.this, "you finished the game!", Toast.LENGTH_SHORT).show();
+                        showResult(correctAnswers, turn);
+                    }
                     } else {
                         Toast.makeText(Picture_Word.this, "wrong!", Toast.LENGTH_SHORT).show();
-                        finish();
+                    if (turn < list.size()) {
+                        turn++;
+                        newQuestion(turn);
+                    } else {
+                        Toast.makeText(Picture_Word.this, "You lost the game!", Toast.LENGTH_SHORT).show();
+                        showResult(correctAnswers, turn);
                     }
+
                 }
             }
         });
@@ -105,7 +114,7 @@ public class Picture_Word extends AppCompatActivity {
                         newQuestion(turn);
                     } else{
                         Toast.makeText(Picture_Word.this, "you finished the game!", Toast.LENGTH_SHORT).show();
-                        finish();
+                        showResult(correctAnswers, turn);
                     }
                 } else{
                     Toast.makeText(Picture_Word.this, "wrong!", Toast.LENGTH_SHORT).show();
@@ -115,7 +124,7 @@ public class Picture_Word extends AppCompatActivity {
                         newQuestion(turn);
                     } else{
                         Toast.makeText(Picture_Word.this, "you lost the game!", Toast.LENGTH_SHORT).show();
-                        finish();
+                        showResult(correctAnswers, turn);
                     }
                 }
             }
@@ -134,7 +143,7 @@ public class Picture_Word extends AppCompatActivity {
                         newQuestion(turn);
                     } else {
                         Toast.makeText(Picture_Word.this, "you finished the game!", Toast.LENGTH_SHORT).show();
-                        finish();
+                        showResult(correctAnswers, turn);
                     }
                 } else {
                     Toast.makeText(Picture_Word.this, "wrong!", Toast.LENGTH_SHORT).show();
@@ -144,12 +153,13 @@ public class Picture_Word extends AppCompatActivity {
                         newQuestion(turn);
                     } else {
                         Toast.makeText(Picture_Word.this, "you lost the game!", Toast.LENGTH_SHORT).show();
-                        finish();
+                        showResult(correctAnswers, turn);
+
                     }
                 }
             }
         });
-        showResult(correctAnswers, turn);
+
     }
     private void newQuestion(int number){
         //국기 이미지를 스크린에 세팅한다.
@@ -240,8 +250,8 @@ public class Picture_Word extends AppCompatActivity {
         Intent intent = new Intent(this, Picture_Word_Result.class);
         intent.putExtra("correctAnswers", correctAnswers);
         intent.putExtra("totalQuestions", totalQuestions);
-        finish();
         startActivity(intent);
+        finish();
     }
 }
 
