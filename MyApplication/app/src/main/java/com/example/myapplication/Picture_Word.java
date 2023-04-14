@@ -228,6 +228,7 @@ public class Picture_Word extends AppCompatActivity {
 
                 break;
         }
+        //asdf
 
     }
 }
