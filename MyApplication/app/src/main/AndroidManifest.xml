@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -41,6 +42,9 @@
         <activity android:name=".Picture_Word_Result"/>
         <activity android:name=".Sound_Picture"/>
         <activity android:name=".Letter_Picture"/>
+        <activity android:name=".Dictionary_ListView_Element1_2"/>
+        <activity android:name=".Dictionary_Listview_Element1_2_00"/>
+        <activity android:name="ListView_Choose"/>
     </application>
 
 </manifest>

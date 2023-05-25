@@ -50,6 +50,16 @@ public class Dictionary1_1 extends AppCompatActivity {
         /*lv_list = findViewById(R.id.lv_list);*/
         /*sv_list = findViewById(R.id.sv_list);*/
 
+        Button elebtn = (Button) findViewById(R.id.ele_btn);
+        elebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Dictionary_ListView_Element1_2.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     private void dispatchTakePictureIntent() {
