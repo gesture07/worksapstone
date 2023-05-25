@@ -134,7 +134,7 @@ public class Picture_Word extends AppCompatActivity {
             public void onClick(View v) {
                 //정답체크
                 if (b_answer4.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
-                    Toast.makeText(Picture_Word.this, "correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Picture_Word.this, "Correct!", Toast.LENGTH_SHORT).show();
                     //퀴즈 정답 수 증가
                     correctAnswers++;
                     //마자막 문제 체크

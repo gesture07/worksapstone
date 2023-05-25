@@ -1,22 +1,18 @@
 package com.example.myapplication;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Picture_Word_Result extends AppCompatActivity {
-
+public class Letter_Picture_Result extends AppCompatActivity {
     private TextView resultText;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.picture_word_result);
+        setContentView(R.layout.letter_picture_result);
 
         resultText = findViewById(R.id.result_text_view);
 
@@ -36,9 +32,9 @@ public class Picture_Word_Result extends AppCompatActivity {
         // 다시하기 버튼
         Button restartButton = findViewById(R.id.restart_button);
         restartButton.setOnClickListener(v -> {
-            Intent intent1 = new Intent(Picture_Word_Result.this, Picture_Word.class);
+            Intent intent1 = new Intent(Letter_Picture_Result.this, Letter_Picture.class);
 
-            // Picture_Word 클래스로 이동
+            // Letter_Picture 클래스로 이동
             startActivity(intent1);
             finish();
         });
@@ -46,7 +42,7 @@ public class Picture_Word_Result extends AppCompatActivity {
         // 오답 노트 버튼
         Button noteButton = findViewById(R.id.note_button);
         noteButton.setOnClickListener(v -> {
-            Intent intent12 = new Intent(Picture_Word_Result.this, Training2_1.class);
+            Intent intent12 = new Intent(Letter_Picture_Result.this, Training2_1.class);
 
             // Training2_1 로 이동
             startActivity(intent12);
